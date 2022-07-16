@@ -1,0 +1,39 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "build/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "128": "icons/128-gray.png",
+         "16": "icons/16-gray.png",
+         "48": "icons/48-gray.png"
+      },
+      "default_popup": "popups/not-found.html",
+      "default_title": "Vue Devtools"
+   },
+   "content_scripts": [ {
+      "js": [ "build/hook.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "build/detector.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_idle"
+   } ],
+   "description": "Chrome and Firefox DevTools extension for debugging Vue.js applications.",
+   "devtools_page": "devtools-background.html",
+   "icons": {
+      "128": "icons/128.png",
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl2Hp90lXiQdVANckG6ddbOuNshvnHO/KVAZlFg1lqVPwGtul/aBoC5HeYhMM9pG/zd2zWxeyYc48Fql/iMflDjFzvQ2qIitO8MaDICF10kqKa3z2DGLbi3YWmgh/0qmm8wHz6wxsLeHZE8pt2BbbaxZxkJOhYrlOQprFuL6EaCQWdXraLWKhvGWpEByDJi0W5h0LDi3FZBKy9VTs6ukREXLTufHRMmpAQOi/P0UVRQ5GwJAv3BKaX9lVb0Lk0Kv6MGfCmJzViEt8bcRxqMRVOYgoaT+ZZtoBOHnsD/j1n3aFJOzkMu/WuPKOral3FI5k2P9lcthoF8vODvgSFZIYpwIDAQAB",
+   "manifest_version": 2,
+   "name": "Vue.js devtools",
+   "permissions": [ "http://*/*", "https://*/*", "file:///*", "contextMenus", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "5.3.4",
+   "version_name": "5.3.4",
+   "web_accessible_resources": [ "devtools.html", "devtools-background.html", "build/backend.js" ]
+}
